@@ -1,40 +1,29 @@
 function isPalindrome(word) {
   // Write your algorithm here
   word = word.toLowerCase().replace(/[^a-z0-9]/g, '');
-  for (let i = 0; i < Math.floor(word.length / 2); i++) {
-    if (word[i] !== word[word.length - 1 - i]) {
-      return false;
-    } 
-  }
-  return true;
+  return word === word.split('').reverse().join('');
 }
+
 
 
 /* 
   Add your pseudocode here
-  step 1: First i convert the string to lowercase and remove any unwanted character
-  step 2: Initialize a loop that iterates through the first half of the word
-  step 3: Compare the characters at position i and its mirror opposite image
-  step 4: If the word is not a palindrome, return false
-  step 5: The word is a palindrome, so return true
+  step 1: First i convert the string to lowercase.
+  step 2: Remove any unwanted characters from the input string using the replace() method with a regular expression that matches all non-alphanumeric characters and replaces them with an empty string.
+  step 3: Split the resulting string into an array of characters using the split('') method.
+  step 4: Reverse the array using the reverse() method.
+  step 5: Join the reversed array back into a string using the join('') method.
+  Step 6: Compare the resulting reversed string with the original string.
+  Step 7: If the two strings are equal, return true, else return false.
 */
 
 /*
   Add written explanation of your solution here
-  Step 1:
-The first step is to convert the input string to lowercase and remove any unwanted characters. This is done to ensure that the comparison process later on is not affected by any capitalization or special characters in the input.
+The isPalindrome function checks if a given word is a palindrome or not. A palindrome is a word that reads the same backwards as forwards. To determine if a word is a palindrome, the function first converts the word to lowercase using the toLowerCase() method, and removes any unwanted characters from the word using the replace() method with a regular expression that matches all non-alphanumeric characters and replaces them with an empty string.
 
-Step 2:
-Next, a loop is initialized that iterates through the first half of the word. This is because we only need to compare the characters in the first half of the word with their corresponding characters in the second half.
+The function then splits the resulting string into an array of characters using the split('') method, reverses the array using the reverse() method, and joins the reversed array back into a string using the join('') method. This reversed string is then compared to the original string using the === operator.
 
-Step 3:
-Inside the loop, the characters at position i and its mirror opposite image are compared. The mirror opposite image refers to the character that is equidistant from the end of the word as the character at position i is from the start. This comparison is done to check if the characters are the same or not.
-
-Step 4:
-If the characters at position i and its mirror opposite image are not the same, then the word is not a palindrome, and the function returns false.
-
-Step 5:
-If the loop completes without finding any mismatched characters, then the word is a palindrome, and the function returns true.
+If the two strings are equal, the function returns true, indicating that the input word is a palindrome. If they are not equal, the function returns false, indicating that the input word is not a palindrome.
 */
 
 // You can run `node index.js` to view these console logs
